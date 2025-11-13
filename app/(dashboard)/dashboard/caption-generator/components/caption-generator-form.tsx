@@ -7,16 +7,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import CopyButton from '@/components/ui/copy-button';
 import { Upload } from 'lucide-react';
-import { generateCaption } from '../action';
+import { generateCaption, type FormState } from '../action';
 import { useFormStatus } from 'react-dom';
 
 export default function CaptionGeneratorForm() {
     const [imagePreview, setImagePreview] = useState<string | null>(null);
   
-    type FormState = {
-      error?: string;
-      captions?: Array<{ caption: string; platform: string }>;
-    };
   
     const initialState: FormState = {};
     const [formState, formAction] = useActionState<FormState, FormData>(
